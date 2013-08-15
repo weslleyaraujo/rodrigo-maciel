@@ -43,10 +43,33 @@ nav {
 	width: 180px;
 	margin: 0 0 0 30px;
 	text-align: left;
+	min-height: 100px;
 }
 
 // right-content 
 .right-content {
 	float: left;
-	width: 690px;
+	width: 680px;
+	.main-image {
+		min-width: 670px;
+		min-height: 580px;
+		img {
+			border: 5px solid #404040;
+			margin: 0 auto;
+		}
+	}
+}
+
+// home-content
+.home-content {
+	.right-content {
+		text-align: center;
+	}
+}
+
+// thanks-visit
+.thanks-visit {
+	margin: 15px 0 0 0;
+	border-top: 1px dotted $font-color;
+	text-align: right;
 }

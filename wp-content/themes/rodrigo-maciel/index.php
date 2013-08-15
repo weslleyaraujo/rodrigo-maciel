@@ -12,13 +12,17 @@
 	get_header();
 ?>
 
-	<div class="full-wrap">
+	<div class="full-wrap home-content">
 		<div class="wrap">
 			<div class="left-sidebar">
-				thats my lef sidebar
 			</div>
 			<div class="right-content">
-				thats my content
+				<div class="main-image">
+					<img src="<?php echo bloginfo('template_url') ?>/images/main-example-670x580.jpg" />
+				</div>
+				<div class="thanks-visit">
+					<p>Thank you for visit.</p>
+				</div>
 			</div>
 		</div>
 	</div>

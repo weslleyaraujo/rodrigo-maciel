@@ -247,6 +247,12 @@ nav h1 { position: relative; }
 nav h1:after { content: ''; width: 170px; height: 1px; position: absolute; left: 30px; bottom: -10px; border-bottom: 1px dotted #939393; }
 nav h1 a { color: #e64b17; }
 
-.left-sidebar { float: left; width: 180px; margin: 0 0 0 30px; text-align: left; }
+.left-sidebar { float: left; width: 180px; margin: 0 0 0 30px; text-align: left; min-height: 100px; }
 
-.right-content { float: left; width: 690px; }
+.right-content { float: left; width: 680px; }
+.right-content .main-image { min-width: 670px; min-height: 580px; }
+.right-content .main-image img { border: 5px solid #404040; margin: 0 auto; }
+
+.home-content .right-content { text-align: center; }
+
+.thanks-visit { margin: 15px 0 0 0; border-top: 1px dotted #939393; text-align: right; }
