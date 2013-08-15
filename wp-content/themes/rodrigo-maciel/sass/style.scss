@@ -1,1 +1,38 @@
 @import 'base';
+
+// Nav
+nav {
+	margin: 25px 0;
+    font-size: 21px;
+    li {
+    	@include inline-block;
+	    &:last-child {
+	    	a {
+	    		border-right: none;
+	    	}
+	    }
+    }
+    a {
+		padding: 3px 30px;
+		border-right: 1px dotted $font-color;
+		@include transition(0.5s);
+		&:hover {
+			color: tint($active-color, 15%);
+		}
+    }
+    h1 {
+    	position: relative;
+    	&:after {
+			content: '';
+			width: 170px;
+			height: 1px;
+			position: absolute;
+			left: 30px;
+			bottom: -10px;
+			border-bottom: 1px dotted $font-color;
+    	}
+		a {
+			color: $active-color;
+		}
+    }
+}
