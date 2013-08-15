@@ -1,0 +1,32 @@
+/*
+Theme Name: Theme Name
+Theme URI: 
+Description: Theme Description
+Author: Author Name
+Author URI: http://autor.com
+Version: 1.0
+Tags: 
+
+License:
+License URI:
+
+*/
+
+// import ci boilerplate files
+@import '../css/normalize.scss';
+@import '../css/styles-ci-boilerplate.scss';
+
+// import helpers
+@import 'helpers';
+
+// declare typography
+.typography
+{
+	font-family: Arial, Tahoma, Verdana;
+	font-size: 14px;
+}
+
+// Start base
+body {
+	@extend .typography;
+}
