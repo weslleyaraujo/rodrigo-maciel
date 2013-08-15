@@ -246,3 +246,7 @@ nav a:hover { color: #e96639; }
 nav h1 { position: relative; }
 nav h1:after { content: ''; width: 170px; height: 1px; position: absolute; left: 30px; bottom: -10px; border-bottom: 1px dotted #939393; }
 nav h1 a { color: #e64b17; }
+
+.left-sidebar { float: left; width: 180px; margin: 0 0 0 30px; text-align: left; }
+
+.right-content { float: left; width: 690px; }
