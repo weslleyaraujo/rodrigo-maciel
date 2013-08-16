@@ -94,3 +94,18 @@ nav.main {
 		@include inline-block;
 	}	
 }
+
+// navigation-left
+nav.navigation-left {
+	margin: 40px 0 0 0;
+	font-size: 20px;
+	li {
+		clear: both;
+		margin: 5px 0;
+	}
+	a {
+		&.active {
+			color: $active-color;
+		}
+	}
+}

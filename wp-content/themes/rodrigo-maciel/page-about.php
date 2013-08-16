@@ -20,13 +20,15 @@
 					<li><a href="#" class="icons-social-pinterest"></a></li>
 				</ul>
 				<!-- /.social-list -->
-
+				
+				<!-- .navigation-left -->
 				<nav class="navigation-left">
 					<ul class="clear">
-						<li><a href="#"></a>RESUME</li>
-						<li><a href="#"></a>CONTACT</li>
+						<li><a href="#" class="active">RESUME</a></li>
+						<li><a href="mailto:rodrigomacielart@gmail.com">CONTACT</a></li>
 					</ul>
 				</nav>
+				<!-- /.navigation-left -->
 
 			</div>
 			<div class="right-content">

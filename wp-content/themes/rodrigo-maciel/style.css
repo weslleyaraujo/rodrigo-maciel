@@ -246,7 +246,7 @@ h2 { font-size: 25px; max-width: 7px 0; }
 
 .font-bold { font-family: champagne__limousinesbold, Arial, Tahoma, Verdana; }
 
-.typography, body { font-size: 14px; color: #939393; }
+.typography, body { font-size: 16px; color: #939393; }
 
 body { background: #262626; }
 
@@ -275,3 +275,7 @@ nav.main h1 a { color: #e64b17; }
 .about-content .main-image { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30); opacity: 0.3; }
 
 .social-list li { margin: 0 9px; display: -moz-inline-stack; display: inline-block; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; }
+
+nav.navigation-left { margin: 40px 0 0 0; font-size: 20px; }
+nav.navigation-left li { clear: both; margin: 5px 0; }
+nav.navigation-left a.active { color: #e64b17; }
