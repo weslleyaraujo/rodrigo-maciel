@@ -46,11 +46,11 @@
         <div class="wrap">
             <nav class="full-wrap">
                 <ul class="clear">
-                    <li><h1><a href="#">RODRIGO MACIEL</a></h1></li>
+                    <li><h1><a href="<?php echo bloginfo('siteurl'); ?>">RODRIGO MACIEL</a></h1></li>
                     <li><a href="#">ARTWORK</a></li>
                     <li><a href="#">SKETCHBOOK</a></li>
                     <li><a href="#">BLOG</a></li>
-                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="<?php echo bloginfo('siteurl'); ?>/about">ABOUT</a></li>
                     <li><a href="#">STORE</a></li>
                 </ul>
             </nav>

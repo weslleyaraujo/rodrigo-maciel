@@ -8,12 +8,12 @@
 	get_header();
 
 ?>
-	<div class="full-wrap blog-content">
+	<div class="full-wrap about-content">
 		<div class="wrap">
 			<div class="left-sidebar">
 			</div>
 			<div class="right-content">
-				<div class="text-about full-wrap">
+				<div class="text-about">
 					<?php while(have_posts()) : the_post(); ?>
 						<h2><?php the_title(); ?></h2>
 						<?php the_content(); ?>

@@ -76,3 +76,13 @@ nav {
 }
 
 // about
+.about-content {
+	.text-about {
+		position: absolute;
+		padding: 30px;
+		z-index: 1;
+	}
+	.main-image {
+		@include opacity(0.3);
+	}
+}
