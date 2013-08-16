@@ -16,17 +16,41 @@ License URI:
 @import '../css/normalize.scss';
 @import '../css/styles-ci-boilerplate.scss';
 
+// include css 3 library
+@import 'compass/css3';
+
 // import helpers
 @import 'helpers';
 
+// import font
+@import 'css/fonts/champagne_limousines/stylesheet.css';
+
+// declare colors
+$font-color:       #939393;
+$background-color: #262626;
+$active-color:     #E64B17;
+
 // declare typography
+.font {
+	font-family: champagne__limousinesregular, Arial, Tahoma, Verdana;
+}
+.font-bold {
+	font-family: champagne__limousinesbold, Arial, Tahoma, Verdana;
+}
+
 .typography
 {
-	font-family: Arial, Tahoma, Verdana;
 	font-size: 14px;
+	color: $font-color;
+	@extend .font;
 }
 
 // Start base
 body {
+	background: $background-color;
 	@extend .typography;
+}
+a {
+	color: $font-color;
+	@extend .clear;
 }

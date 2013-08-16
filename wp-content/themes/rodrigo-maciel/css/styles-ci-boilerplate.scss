@@ -136,8 +136,16 @@ textarea {
 #no-js{display:none;}
 html.no-js #no-js{background:#b73232; border: 5px solid #990000; text-align:center; padding: 10px; z-index:99999; display:block; color: #FFF; font-weight:bold;}
 
-.wrap { width: 1000px; margin: 0 auto; }
-.full-wrap { width: 100%; clear: both; overflow: auto; }
+.wrap { 
+    width: 920px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.full-wrap { 
+    width: 100%;
+    clear: both;
+    float: left;
+}
 
 /* ==========================================================================
    Print styles

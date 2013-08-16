@@ -1,22 +1,24 @@
 <?php
-/**
- * The main template file.
- *
- *
- * @package WordPress
- * @subpackage Rodrigo Maciel
- * @since Rodrigo Maciel 1.0
- */
 	
+	/**
+	 * Template Name: About
+	 */
+
 	// header
 	get_header();
-?>
 
-	<div class="full-wrap home-content">
+?>
+	<div class="full-wrap blog-content">
 		<div class="wrap">
 			<div class="left-sidebar">
 			</div>
 			<div class="right-content">
+				<div class="text-about full-wrap">
+					<?php while(have_posts()) : the_post(); ?>
+						<h2><?php the_title(); ?></h2>
+						<?php the_content(); ?>
+					<?php endwhile; ?>
+				</div>
 				<div class="main-image">
 					<img src="<?php echo bloginfo('template_url') ?>/images/main-example-670x580.jpg" />
 				</div>

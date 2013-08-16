@@ -8,8 +8,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
-
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>"/>
+    
     <script type="text/javascript">
         var BASEURL = '<?php echo bloginfo('siteurl'); ?>';
     </script>
@@ -42,6 +42,17 @@
 </head>
 <body>
 
-    <header>
-        
+    <header class="full-wrap">
+        <div class="wrap">
+            <nav class="full-wrap">
+                <ul class="clear">
+                    <li><h1><a href="#">RODRIGO MACIEL</a></h1></li>
+                    <li><a href="#">ARTWORK</a></li>
+                    <li><a href="#">SKETCHBOOK</a></li>
+                    <li><a href="#">BLOG</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">STORE</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
