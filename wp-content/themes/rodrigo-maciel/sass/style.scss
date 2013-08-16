@@ -1,7 +1,7 @@
 @import 'base';
 
-// Nav
-nav {
+// Nav main
+nav.main {
 	margin: 25px 0;
     font-size: 21px;
     li {
@@ -85,4 +85,12 @@ nav {
 	.main-image {
 		@include opacity(0.3);
 	}
+}
+
+// social-list
+.social-list {
+	li {
+		margin: 0 9px;
+		@include inline-block;
+	}	
 }

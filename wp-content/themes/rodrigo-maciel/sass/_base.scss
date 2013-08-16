@@ -25,6 +25,13 @@ License URI:
 // import font
 @import 'css/fonts/champagne_limousines/stylesheet.css';
 
+// import icons
+@import '../images/icons/*.png';
+@include all-icons-sprites(true);
+.icons-sprite {
+	@include inline-block;
+}
+
 // declare colors
 $font-color:       #939393;
 $background-color: #262626;

@@ -11,6 +11,23 @@
 	<div class="full-wrap about-content">
 		<div class="wrap">
 			<div class="left-sidebar">
+				
+				<!-- .social-list -->
+				<ul class="social-list clear">
+					<li><a href="#" class="icons-social-facebook"></a></li>
+					<li><a href="#" class="icons-social-play"></a></li>
+					<li><a href="#" class="icons-social-be"></a></li>
+					<li><a href="#" class="icons-social-pinterest"></a></li>
+				</ul>
+				<!-- /.social-list -->
+
+				<nav class="navigation-left">
+					<ul class="clear">
+						<li><a href="#"></a>RESUME</li>
+						<li><a href="#"></a>CONTACT</li>
+					</ul>
+				</nav>
+
 			</div>
 			<div class="right-content">
 				<div class="text-about">
