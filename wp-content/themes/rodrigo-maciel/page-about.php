@@ -12,14 +12,7 @@
 		<div class="wrap">
 			<div class="left-sidebar">
 				
-				<!-- .social-list -->
-				<ul class="social-list clear">
-					<li><a href="#" class="icons-social-facebook"></a></li>
-					<li><a href="#" class="icons-social-play"></a></li>
-					<li><a href="#" class="icons-social-be"></a></li>
-					<li><a href="#" class="icons-social-pinterest"></a></li>
-				</ul>
-				<!-- /.social-list -->
+				<?php get_template_part('templates/social', 'list'); ?>
 				
 				<!-- .navigation-left -->
 				<nav class="navigation-left">
@@ -36,10 +29,26 @@
 					<?php while(have_posts()) : the_post(); ?>
 						<h2><?php the_title(); ?></h2>
 						<?php the_content(); ?>
+						
 					<?php endwhile; ?>
 				</div>
 				<div class="main-image">
-					<img src="<?php echo bloginfo('template_url') ?>/images/main-example-670x580.jpg" />
+					<?php
+						$rand = rand(1, 5);
+						switch ($rand) {
+							case 1:
+								$src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+								$src = $src[0];
+							break;
+							
+							default:
+								$src = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'page-image-'.$rand);
+							break;
+						}
+					?>
+
+					<img src="<?php echo $src; ?>" />
+					
 				</div>
 				<div class="thanks-visit">
 					<p>Thank you for visit.</p>
