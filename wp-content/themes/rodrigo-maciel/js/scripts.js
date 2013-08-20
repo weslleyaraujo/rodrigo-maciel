@@ -75,4 +75,45 @@ $(document).ready(function(){
 
         internal.init();
     }
+
+    // fixed nav
+    var nav = (function() {
+        
+        var windowDocument = $(window),
+            obj            = $('nav.main ul');
+
+        function init() {
+            bindScroll();
+        }
+
+        function fixedObj() {
+            obj.parent().addClass('fixed');
+        }
+
+        function normalObj() {
+            obj.parent().removeClass('fixed');
+        }
+
+        function compare() {
+           if (windowDocument.scrollTop() >= obj.height()) {
+                fixedObj();
+            }
+            else {
+                normalObj();
+            }
+        }
+
+        function bindScroll() {
+            windowDocument.scroll(function() {
+                compare();
+            });
+        }
+
+        return {
+            init : init
+        };
+
+    }());
+
+    nav.init();
 });

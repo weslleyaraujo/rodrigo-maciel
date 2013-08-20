@@ -51,7 +51,7 @@
 				
 				<div class="hold-nav">
 					<div class="nav">
-						<a href="#" class="next">PREVIOUS</a> | <a href="#" class="prev">NEXT</a>
+						<a href="#" class="next">preview</a> | <a href="#" class="prev">next</a>
 					</div>
 					<div class="count">
 						<span class="f">1</span> of <span class="s">2</span>

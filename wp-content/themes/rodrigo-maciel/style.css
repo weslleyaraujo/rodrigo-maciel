@@ -269,6 +269,10 @@ nav.main h1 { position: relative; }
 nav.main h1:after { content: ''; width: 170px; height: 1px; position: absolute; left: 30px; bottom: -10px; border-bottom: 1px dotted #939393; }
 nav.main h1 a { color: #e64b17; }
 
+nav.main.fixed { margin: 0; }
+nav.main.fixed h1:after { display: none; }
+nav.main.fixed ul { background: #212121; padding: 20px 0 15px 0; position: fixed; z-index: 999; -webkit-transition: 0.3s; -moz-transition: 0.3s; -o-transition: 0.3s; transition: 0.3s; -webkit-box-shadow: 0 0 3px black; -moz-box-shadow: 0 0 3px black; box-shadow: 0 0 3px black; }
+
 .left-sidebar { float: left; width: 180px; margin: 0 0 0 30px; text-align: left; min-height: 100px; }
 
 .right-content { float: left; width: 680px; position: relative; }
@@ -297,7 +301,7 @@ nav.navigation-left a.active, nav.navigation-left a:hover { color: #e64b17; }
 .internal-content .main-image { text-align: center; padding: 0 0 30px 0; min-width: 670px; min-height: 500px; box-sizing: border-box; background: url('images/loader.gif?1377023253') no-repeat center center; }
 .internal-content .main-image div { position: absolute; background: red; z-index: 9999; }
 .internal-content .hold-nav { padding: 10px 0; font-size: 12px; }
-.internal-content .hold-nav .nav { float: left; }
+.internal-content .hold-nav .nav { float: left; font-size: 15px; }
 .internal-content .hold-nav .nav a { color: #e64b17; -webkit-transition: 0.3s; -moz-transition: 0.3s; -o-transition: 0.3s; transition: 0.3s; }
 .internal-content .hold-nav .nav a:hover { text-decoration: underline; }
 .internal-content .hold-nav .count { float: right; }

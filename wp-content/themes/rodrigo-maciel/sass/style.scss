@@ -37,6 +37,24 @@ nav.main {
     }
 }
 
+// fixed nav
+nav.main.fixed {
+	margin: 0;
+	h1 {
+		&:after {
+			display:none;
+		}
+	}
+	ul {
+		background: #212121;
+		padding: 20px 0 15px 0;
+		position: fixed;
+		z-index: 999;
+		@include transition(0.3s);
+		@include box-shadow(0 0 3px #000);
+	}
+}
+
 // left sidebar
 .left-sidebar {
 	float: left;
@@ -153,6 +171,7 @@ nav.navigation-left {
 		font-size: 12px;
 		.nav {
 			float: left;
+			font-size: 15px; 
 			a {
 				color: $active-color;
 				@include transition(0.3s);
