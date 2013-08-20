@@ -52,8 +52,6 @@ nav.main {
 	width: 680px;
 	position: relative;
 	.main-image {
-		min-width: 670px;
-		min-height: 580px;
 		img {
 			border: 5px solid #404040;
 			margin: 0 auto;
@@ -66,13 +64,18 @@ nav.main {
 	.right-content {
 		text-align: center;
 	}
+	.main-image {
+		min-width: 670px;
+		min-height: 580px;
+	}
 }
 
 // thanks-visit
 .thanks-visit {
-	margin: 15px 0 0 0;
+	margin: 25px 0 0 0;
 	border-top: 1px dotted $font-color;
 	text-align: right;
+	min-height: 30px;
 }
 
 // about
@@ -83,15 +86,28 @@ nav.main {
 		z-index: 1;
 	}
 	.main-image {
+		min-width: 670px;
+		min-height: 580px;
 		@include opacity(0.3);
 	}
 }
 
 // social-list
 .social-list {
+	&:hover {
+		a {
+			@include opacity(0.3);
+		}
+	}
 	li {
 		margin: 0 9px;
 		@include inline-block;
+		a {
+			@include transition(0.3s);
+			&:hover {
+				@include opacity(1);
+			}
+		}
 	}	
 }
 
@@ -102,10 +118,84 @@ nav.navigation-left {
 	li {
 		clear: both;
 		margin: 5px 0;
+		ul {
+			margin: 20px 0;
+			a {
+				color: #474747;
+			}
+		}
 	}
 	a {
-		&.active {
+		@include transition(0.3s);
+		&.active, &:hover {
 			color: $active-color;
+		}
+	}
+}
+
+// internal-content
+.internal-content {
+	.main-image {
+		text-align: center;
+		padding: 0 0 30px 0;
+		min-width: 670px;
+		min-height: 500px;
+		box-sizing: border-box;
+		@include background(image-url("loader.gif") no-repeat center center);
+		div {
+			position: absolute;
+			background: red;
+			z-index: 9999;
+		}
+	}
+	.hold-nav {
+		padding: 10px 0;
+		font-size: 12px;
+		.nav {
+			float: left;
+			a {
+				color: $active-color;
+				@include transition(0.3s);
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+		.count {
+			float: right;
+		}
+	}
+	.job-description, .down {
+		margin: 15px 0 0 0;
+	}
+	.tags, .share {
+		font-size: 14px;
+		float: left;
+		li {
+			@include inline-block;
+			&.title {
+				color: $active-color;
+				margin: 0 10px 0 0;
+			}
+			a {
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	.share {
+		float: right;
+		&:hover {
+			a {
+				@include opacity(0.3);
+			}
+		}
+		a {
+			@include transition(0.3s);
+			&:hover {
+				@include opacity(1);
+			}
 		}
 	}
 }

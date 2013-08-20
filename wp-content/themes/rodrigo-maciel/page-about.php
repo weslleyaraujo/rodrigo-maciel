@@ -45,11 +45,9 @@
 							break;
 						}
 					?>
-
 					<img src="<?php echo $src; ?>" />
-					
 				</div>
-				<div class="thanks-visit">
+				<div class="thanks-visit full-wrap">
 					<p>Thank you for visit.</p>
 				</div>
 			</div>
