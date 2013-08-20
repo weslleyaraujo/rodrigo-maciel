@@ -77,10 +77,77 @@
 						<li><a href="#" class="icons-social-pint-mini"></a></li>
 					</ul>
 				</div>
-
-				<div class="thanks-visit full-wrap">
-
+					
+				<div class="full-wrap most-popular">
+					MOST POPULAR
+					<ul class="clear">
+						<li>
+							<a href="#">
+								<div class="overlay">
+									JOB NAME
+								</div>
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="overlay">
+									JOB NAME
+								</div>
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="overlay">
+									JOB NAME
+								</div>
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="overlay">
+									JOB NAME
+								</div>
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="overlay">
+									JOB NAME
+								</div>
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="overlay">
+									JOB NAME
+								</div>
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="overlay">
+									JOB NAME
+								</div>
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="overlay">
+									JOB NAME
+								</div>
+								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
+							</a>
+						</li>
+					</ul>
 				</div>
+
 			</div>
 		</div>
 	</div>
