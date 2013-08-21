@@ -40,7 +40,7 @@
     </script>
 
 </head>
-<body>
+<body <?php body_class(); ?> >
 
     <header class="full-wrap">
         <div class="wrap">

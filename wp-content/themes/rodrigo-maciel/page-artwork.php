@@ -9,8 +9,9 @@
 
 	require_once('helpers/internal-helpers.php');
 
-	$artworks = new Internal('artwork');
-	$recent   = $artworks->getRecent();
+	$artworks    = new Internal('artwork');
+	$recent      = $artworks->getRecent();
+	$mostPopular = $artworks->getMostPopular();
 ?>
 	<div class="full-wrap internal-content">
 		<div class="wrap">
@@ -65,7 +66,7 @@
 				<?php while ($recent->have_posts()): $recent->the_post();
 						
 					// get post id
-					$post_id = get_the_ID();
+					$recent_post_id = get_the_ID();
 				?>
 					
 				
@@ -100,7 +101,7 @@
 					</div>
 					
 					<div class="full-wrap down">
-						<?php $tags = wp_get_post_tags($post_id); if ($tags): ?>
+						<?php $tags = wp_get_post_tags($recent_post_id); if ($tags): ?>
 							<ul class="clear tags">
 								<li class="title">Tags:</li>
 								<?php foreach ($tags as $key => $value): ?>
@@ -118,78 +119,41 @@
 					</div>
 				
 				<?php endwhile; ?>
+					
+				<?php if ($mostPopular->have_posts()): ?>
+					
+					<!-- .most-popular -->
+					<div class="full-wrap most-popular">
+						MOST POPULAR
+						<ul class="clear">
+							<?php while($mostPopular->have_posts()): $mostPopular->the_post();
+								
+								// get post id
+								$post_id = get_the_ID();
+								if ($post_id != $recent_post_id):
+								
+								$src = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'single-post-thumbnail');
+								$src = $src[0];
 
-				<!-- .most-popular -->
-				<div class="full-wrap most-popular">
-					MOST POPULAR
-					<ul class="clear">
-						<li>
-							<a href="#">
-								<div class="overlay">
-									GALOCHAS HAVAIANAS
-								</div>
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<div class="overlay">
-									ESCOLA PANAMERICANA FRASES
-								</div>
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<div class="overlay">
-									JOB NAME
-								</div>
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<div class="overlay">
-									JOB NAME
-								</div>
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<div class="overlay">
-									JOB NAME
-								</div>
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<div class="overlay">
-									JOB NAME
-								</div>
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<div class="overlay">
-									JOB NAME
-								</div>
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<div class="overlay">
-									JOB NAME
-								</div>
-								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
-							</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /.most-popular -->
+							?>							
+									<li>
+										<a href="#">
+											<div class="overlay">
+												<?php the_title(); ?>
+											</div>
+											<img src="<?php echo $src; ?>" alt="<?php the_title(); ?>">
+										</a>
+									</li>
+
+							<?php endif ?>
+
+							<?php endwhile; ?>
+						</ul>
+					</div>
+					<!-- /.most-popular -->
+
+				<?php endif ?>
+
 
 				<!-- .down-info -->
 				<div class="down-info full-wrap">

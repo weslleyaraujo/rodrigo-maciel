@@ -11,7 +11,6 @@
 	// header
 	get_header();
 ?>
-
 	<div class="full-wrap home-content">
 		<div class="wrap">
 			<div class="left-sidebar">

@@ -62,7 +62,7 @@
 			'label'               => 'artwork',
 			'description'         => 'Artwork information pages',
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'post-formats', ),
+			'supports'            => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'post-formats',),
 			'hierarchical'        => false,
 			'public'              => true,
 			'show_ui'             => true,
@@ -77,13 +77,13 @@
 			'publicly_queryable'  => true,
 			'capability_type'     => 'page',
 		);
-		register_post_type( 'artwork', $args );
+		register_post_type('artwork', $args);
 		register_taxonomy_for_object_type('post_tag', 'artwork');
 		register_taxonomy_for_object_type('category', 'demo');
 	}
 
 	// Hook into the 'init' action
-	add_action( 'init', 'artwork', 0 );
+	add_action( 'init', 'artwork', 0);
 
 	// add multiple thumbs for artwork
 	if (class_exists('MultiPostThumbnails')) {
@@ -118,4 +118,23 @@
 			'post_type' => 'artwork'
 		));
  	}
+
+ 	/**
+	 * Adds two classes to the array of body classes.
+	 * The first is if the site has only had one author with published posts.
+	 * The second is if a singular post being displayed
+	 *
+	 */
+	function rodrigo_art_body_classes($classes) {
+
+		if (function_exists('is_multi_author') && ! is_multi_author())
+			$classes[] = 'single-author';
+
+		if (is_singular() && ! is_home())
+			$classes[] = 'singular';
+
+		return $classes;
+	}
+
+	add_filter( 'body_class', 'rodrigo_art_body_classes' );
 ?>
