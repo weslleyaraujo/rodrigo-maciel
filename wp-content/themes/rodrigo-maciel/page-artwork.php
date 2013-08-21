@@ -17,7 +17,7 @@
 				<!-- .navigation-left -->
 				<nav class="navigation-left">
 					<ul class="clear">
-						<li>
+						<li class="year active">
 							2014
 							<ul class="clear">
 								<li><a class="active" href="#">Lorem</a></li>
@@ -25,7 +25,23 @@
 								<li><a href="#">Lorem ipsum dolor sit.</a></li>
 							</ul>
 						</li>
-						<li>
+						<li class="year">
+							<a href="#">2013</a>
+							<ul class="clear">
+								<li><a class="active" href="#">Lorem</a></li>
+								<li><a href="#">Lorem ipsum dolor sit.</a></li>
+								<li><a href="#">Lorem ipsum dolor sit.</a></li>
+							</ul>
+						</li>
+						<li class="year">
+							<a href="#">2012</a>
+							<ul class="clear">
+								<li><a class="active" href="#">Lorem</a></li>
+								<li><a href="#">Lorem ipsum dolor sit.</a></li>
+								<li><a href="#">Lorem ipsum dolor sit.</a></li>
+							</ul>
+						</li>
+						<li class="tags-list">
 							TAGS
 							<ul class="clear">
 								<li><a href="#">Lorem ipsum dolor.</a></li>
@@ -77,14 +93,15 @@
 						<li><a href="#" class="icons-social-pint-mini"></a></li>
 					</ul>
 				</div>
-					
+				
+				<!-- .most-popular -->
 				<div class="full-wrap most-popular">
 					MOST POPULAR
 					<ul class="clear">
 						<li>
 							<a href="#">
 								<div class="overlay">
-									JOB NAME
+									GALOCHAS HAVAIANAS
 								</div>
 								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
 							</a>
@@ -92,7 +109,7 @@
 						<li>
 							<a href="#">
 								<div class="overlay">
-									JOB NAME
+									ESCOLA PANAMERICANA FRASES
 								</div>
 								<img src="<?php bloginfo('template_url'); ?>/images/thumb-example-155x240.jpg" alt="Job Name">
 							</a>
@@ -147,6 +164,7 @@
 						</li>
 					</ul>
 				</div>
+				<!-- /.most-popular -->
 
 			</div>
 		</div>

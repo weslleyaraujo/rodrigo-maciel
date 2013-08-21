@@ -116,4 +116,41 @@ $(document).ready(function(){
     }());
 
     nav.init();
+
+    // left years
+    if ($('.navigation-left li.year').exists()) {
+
+        var leftYears = (function() {
+
+            var openers = $('li.year a'),
+                obj = null;
+
+            function bindOpeners() {
+                openers.on('click', function(e) {
+                    e.preventDefault();
+                    obj = $(this);
+                    if (comparer(obj)) {
+                        obj.next().slideUp();
+                        return;
+                    }
+                    obj.next().slideDown();
+                });
+            }
+
+            function comparer(o) {
+                return obj.next().is(':visible') ? true : false;
+            }
+
+            function init() {
+                bindOpeners();
+            }
+
+            return {
+                init: init
+            };
+
+        }());
+
+        leftYears.init();
+    }
 });

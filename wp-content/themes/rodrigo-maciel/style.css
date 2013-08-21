@@ -293,6 +293,10 @@ nav.main.fixed ul { background: #212121; padding: 20px 0 15px 0; position: fixed
 
 nav.navigation-left { margin: 40px 0 0 0; font-size: 20px; }
 nav.navigation-left li { clear: both; margin: 5px 0; }
+nav.navigation-left li.year { margin: 40px 0 0 0; }
+nav.navigation-left li.year ul { display: none; }
+nav.navigation-left li.year.active ul { display: block; }
+nav.navigation-left li.tags-list { margin: 30px 0 0 0; }
 nav.navigation-left li ul { margin: 20px 0; }
 nav.navigation-left li ul a { color: #474747; }
 nav.navigation-left a { -webkit-transition: 0.3s; -moz-transition: 0.3s; -o-transition: 0.3s; transition: 0.3s; }
