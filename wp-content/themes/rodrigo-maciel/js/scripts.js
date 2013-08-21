@@ -153,4 +153,32 @@ $(document).ready(function(){
 
         leftYears.init();
     }
+
+    // back top
+    if ($('.back-top')) {
+        
+        var backTop = (function() {
+
+            var opener = $('.back-top'),
+            page       = $('body, html');
+
+            function init() {
+                bindOpener();
+            }
+
+            function bindOpener() {
+                opener.on('click', function(e) {
+                    e.preventDefault();
+                    page.animate({ scrollTop: 0 }, 400);
+                });
+            }
+
+            return {
+                init : init
+            };
+
+        }());
+
+        backTop.init();
+    }
 });

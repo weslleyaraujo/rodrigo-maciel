@@ -285,3 +285,20 @@ nav.navigation-left {
 	@include transition(0.5s);
 	@include opacity(0.8);
 }
+
+// down-info
+.down-info {
+	padding: 5px 0 0 0;
+	border-top: 1px dotted $font-color;
+	margin-bottom: 35px;
+	@extend .font-bold;
+	a {
+		color: #474747;
+	}
+	.contact {
+		float: left;
+	}
+	.back-top {
+		float: right;
+	}
+}

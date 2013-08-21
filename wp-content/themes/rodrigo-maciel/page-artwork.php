@@ -166,6 +166,13 @@
 				</div>
 				<!-- /.most-popular -->
 
+				<!-- .down-info -->
+				<div class="down-info full-wrap">
+					<a href="mailto:rodrigomacielart@gmail.com" class="contact">CONTACT ME</a>
+					<a href="#" class="back-top">BACK TO TOP</a>
+				</div>
+				<!-- /.down-info -->
+
 			</div>
 		</div>
 	</div>
