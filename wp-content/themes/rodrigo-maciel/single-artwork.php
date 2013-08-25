@@ -23,6 +23,7 @@
 
 	// get the post title
 	$postTitle = get_the_title();
+
 ?>
 	<div class="full-wrap internal-content primary-content">
 		<div class="wrap">
@@ -69,21 +70,8 @@
 						</ul>
 					<?php endif ?>
 					<!-- years -->
-
-					<!-- tags -->
-					<ul class="clear">
-						<li class="tags-list">
-							TAGS
-							<ul class="clear">
-								<li><a href="#">Lorem ipsum dolor.</a></li>
-								<li><a href="#">Lorem ipsum dolor.</a></li>
-								<li><a href="#">Lorem ipsum dolor.</a></li>
-								<li><a href="#">Lorem ipsum dolor.</a></li>
-								<li><a href="#">Lorem ipsum dolor.</a></li>
-							</ul>
-						</li>
-					</ul>
-					<!-- /tags -->
+					
+					<?php get_template_part('templates/tags', 'list'); ?>
 
 				</nav>
 				<!-- /.navigation-left -->
@@ -94,7 +82,7 @@
 						<?php
 							$count = 0;
 							for ($i=0; $i <= 5; $i++) { 
-								$src = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'artwork-image-'.$i);
+								$src = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'artwork-image-'.$i, $recent_post_id);
 								if ($src) {
 									$count++;
 						?>
@@ -117,7 +105,7 @@
 					</div>
 
 					<div class="full-wrap job-description">
-						<?php the_content(); ?>
+						<?php echo get_post_field('post_content', $recent_post_id); ?>
 					</div>
 					
 					<div class="full-wrap down">

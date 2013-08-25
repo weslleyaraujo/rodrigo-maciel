@@ -12,8 +12,17 @@
 	$artworks    = new Internal('artwork');
 	$recent      = $artworks->getRecent();
 	$mostPopular = $artworks->getMostPopular();
-	$years = $artworks->getYears();
-	var_dump($years);
+	$years       = $artworks->getYears();
+
+	// the post
+	$recent->have_posts();
+	$recent->the_post();
+	
+	// get post id
+	$recent_post_id = get_the_ID();
+
+	// get the post title
+	$postTitle = get_the_title();
 ?>
 	<div class="full-wrap internal-content primary-content">
 		<div class="wrap">
@@ -23,55 +32,51 @@
 				
 				<!-- .navigation-left -->
 				<nav class="navigation-left">
-					<ul class="clear">
-						<li class="year active">
-							2014
-							<ul class="clear">
-								<li><a class="active" href="#">Lorem</a></li>
-								<li><a href="#">Lorem ipsum dolor sit.</a></li>
-								<li><a href="#">Lorem ipsum dolor sit.</a></li>
-							</ul>
-						</li>
-						<li class="year">
-							<a href="#">2013</a>
-							<ul class="clear">
-								<li><a class="active" href="#">Lorem</a></li>
-								<li><a href="#">Lorem ipsum dolor sit.</a></li>
-								<li><a href="#">Lorem ipsum dolor sit.</a></li>
-							</ul>
-						</li>
-						<li class="year">
-							<a href="#">2012</a>
-							<ul class="clear">
-								<li><a class="active" href="#">Lorem</a></li>
-								<li><a href="#">Lorem ipsum dolor sit.</a></li>
-								<li><a href="#">Lorem ipsum dolor sit.</a></li>
-							</ul>
-						</li>
-						<li class="tags-list">
-							TAGS
-							<ul class="clear">
-								<li><a href="#">Lorem ipsum dolor.</a></li>
-								<li><a href="#">Lorem ipsum dolor.</a></li>
-								<li><a href="#">Lorem ipsum dolor.</a></li>
-								<li><a href="#">Lorem ipsum dolor.</a></li>
-								<li><a href="#">Lorem ipsum dolor.</a></li>
-							</ul>
-						</li>
-					</ul>
+
+					<!-- years -->
+					<?php if ($years): ?>
+
+						<ul class="clear">
+							<?php foreach ($years as $key => $value):
+
+								// has category
+								$hasCat = has_category($value->term_id, $recent_post_id);
+							?>
+
+								<li class="year <?php echo $hasCat === true ? 'active' : ''; ?>">
+									<?php if ($hasCat): ?>
+										<?php echo $value->name; ?>
+									<?php else: ?>
+										<a href="javascript:void(0);"><?php echo $value->name; ?></a>
+									<?php endif;
+
+										$subPosts = $artworks->getPostsByCat($value->term_id);
+										if ($subPosts->have_posts()):
+									?>
+										<ul class="clear">
+									<?php
+											while($subPosts->have_posts()) : $subPosts->the_post();
+									?>
+											<li><a class="<?php echo $postTitle === get_the_title() ? 'active' : ''; ?>" href="<?php echo $postTitle === get_the_title() ? 'javascript:void(0);' : ''; ?>"><?php the_title(); ?></a></li>
+									<?php
+											endwhile;
+									?>
+										</ul>
+									<?php endif ?>
+
+								</li>
+							<?php endforeach ?>
+						</ul>
+					<?php endif ?>
+					<!-- years -->
+					
+					<?php get_template_part('templates/tags', 'list'); ?>
+
 				</nav>
 				<!-- /.navigation-left -->
 
 			</div>
-			<div class="right-content">
-				
-				<?php while ($recent->have_posts()): $recent->the_post();
-						
-					// get post id
-					$recent_post_id = get_the_ID();
-				?>
-					
-				
+			<div class="right-content">				
 					<div class="main-image" id="internal-slide" >
 						<?php
 							$count = 0;
@@ -119,43 +124,8 @@
 							<li><a href="#" class="icons-social-pint-mini"></a></li>
 						</ul>
 					</div>
-				
-				<?php endwhile; ?>
-					
-				<?php if ($mostPopular->have_posts()): ?>
-					
-					<!-- .most-popular -->
-					<div class="full-wrap most-popular">
-						MOST POPULAR
-						<ul class="clear">
-							<?php while($mostPopular->have_posts()): $mostPopular->the_post();
-								
-								// get post id
-								$post_id = get_the_ID();
-								if ($post_id != $recent_post_id):
-								
-								$src = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'single-post-thumbnail');
-								$src = $src[0];
 
-							?>							
-									<li>
-										<a href="#">
-											<div class="overlay">
-												<?php the_title(); ?>
-											</div>
-											<img src="<?php echo $src; ?>" alt="<?php the_title(); ?>">
-										</a>
-									</li>
-
-							<?php endif ?>
-
-							<?php endwhile; ?>
-						</ul>
-					</div>
-					<!-- /.most-popular -->
-
-				<?php endif ?>
-
+				<?php include(locate_template('templates/most-popular.php')); ?>
 
 				<!-- .down-info -->
 				<div class="down-info full-wrap">
