@@ -47,7 +47,7 @@
             <nav class="full-wrap main">
                 <ul class="clear">
                     <li><h1><a href="<?php echo bloginfo('siteurl'); ?>">RODRIGO MACIEL</a></h1></li>
-                    <li><a href="<?php echo bloginfo('siteurl'); ?>/artwork">ARTWORK</a></li>
+                    <li><a href="<?php echo bloginfo('siteurl'); ?>/artwork-jobs">ARTWORK</a></li>
                     <li><a href="#">SKETCHBOOK</a></li>
                     <li><a href="#">BLOG</a></li>
                     <li><a href="<?php echo bloginfo('siteurl'); ?>/about">ABOUT</a></li>

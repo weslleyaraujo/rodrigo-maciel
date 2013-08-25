@@ -1,9 +1,15 @@
 @import 'base';
 
+// primary-content
+.primary-content {
+	padding: 80px 0 0 0;
+}
+
 // Nav main
 nav.main {
 	margin: 25px 0;
     font-size: 21px;
+    position: fixed;
     li {
     	@include inline-block;
 	    &:last-child {
@@ -40,6 +46,7 @@ nav.main {
 // fixed nav
 nav.main.fixed {
 	margin: 0;
+	z-index: 999;
 	h1 {
 		&:after {
 			display:none;
@@ -50,7 +57,6 @@ nav.main.fixed {
 		padding: 20px 0 15px 0;
 		position: fixed;
 		z-index: 999;
-		@include transition(0.3s);
 		@include box-shadow(0 0 3px #000);
 	}
 }

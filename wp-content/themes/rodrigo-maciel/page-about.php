@@ -8,7 +8,7 @@
 	get_header();
 
 ?>
-	<div class="full-wrap about-content">
+	<div class="full-wrap about-content primary-content">
 		<div class="wrap">
 			<div class="left-sidebar">
 				

@@ -260,7 +260,9 @@ body { background: #262626; }
 
 a { color: #939393; }
 
-nav.main { margin: 25px 0; font-size: 21px; }
+.primary-content { padding: 80px 0 0 0; }
+
+nav.main { margin: 25px 0; font-size: 21px; position: fixed; }
 nav.main li { display: -moz-inline-stack; display: inline-block; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; }
 nav.main li:last-child a { border-right: none; }
 nav.main a { padding: 3px 30px; border-right: 1px dotted #939393; -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; transition: 0.5s; }
@@ -269,9 +271,9 @@ nav.main h1 { position: relative; }
 nav.main h1:after { content: ''; width: 170px; height: 1px; position: absolute; left: 30px; bottom: -10px; border-bottom: 1px dotted #939393; }
 nav.main h1 a { color: #e64b17; }
 
-nav.main.fixed { margin: 0; }
+nav.main.fixed { margin: 0; z-index: 999; }
 nav.main.fixed h1:after { display: none; }
-nav.main.fixed ul { background: #212121; padding: 20px 0 15px 0; position: fixed; z-index: 999; -webkit-transition: 0.3s; -moz-transition: 0.3s; -o-transition: 0.3s; transition: 0.3s; -webkit-box-shadow: 0 0 3px black; -moz-box-shadow: 0 0 3px black; box-shadow: 0 0 3px black; }
+nav.main.fixed ul { background: #212121; padding: 20px 0 15px 0; position: fixed; z-index: 999; -webkit-box-shadow: 0 0 3px black; -moz-box-shadow: 0 0 3px black; box-shadow: 0 0 3px black; }
 
 .left-sidebar { float: left; width: 180px; margin: 0 0 0 30px; text-align: left; min-height: 100px; }
 

@@ -15,29 +15,14 @@
 	// add multiple thumbs for page
 	if (class_exists('MultiPostThumbnails')) {
 
-		new MultiPostThumbnails(array(
-			'label'     => 'Page Image 2',
-			'id'        => 'page-image-2',
-			'post_type' => 'page'
-		));
-
-		new MultiPostThumbnails(array(
-			'label'     => 'Page Image 3',
-			'id'        => 'page-image-3',
-			'post_type' => 'page'
-		));
-
-		new MultiPostThumbnails(array(
-			'label'     => 'Page Image 4',
-			'id'        => 'page-image-4',
-			'post_type' => 'page'
-		));
-
-		new MultiPostThumbnails(array(
-			'label'     => 'Page Image 5',
-			'id'        => 'page-image-5',
-			'post_type' => 'page'
-		));
+		for ($i=2; $i <= 5; $i++) { 
+			
+			new MultiPostThumbnails(array(
+				'label'     => 'Page Image '.$i,
+				'id'        => 'page-image-'.$i,
+				'post_type' => 'page'
+			));
+		}
  	}
 
  	// Register Custom Post Type
@@ -62,7 +47,7 @@
 			'label'               => 'artwork',
 			'description'         => 'Artwork information pages',
 			'labels'              => $labels,
-			'supports'            => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'post-formats',),
+			'supports'            => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'post-formats', 'category'),
 			'hierarchical'        => false,
 			'public'              => true,
 			'show_ui'             => true,
@@ -75,48 +60,26 @@
 			'has_archive'         => true,
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
-			'capability_type'     => 'page',
+			'capability_type'     => 'page'
 		);
 		register_post_type('artwork', $args);
 		register_taxonomy_for_object_type('post_tag', 'artwork');
-		register_taxonomy_for_object_type('category', 'demo');
+		register_taxonomy_for_object_type('category', 'artwork');
 	}
 
 	// Hook into the 'init' action
-	add_action( 'init', 'artwork', 0);
+	add_action('init', 'artwork', 0);
 
 	// add multiple thumbs for artwork
 	if (class_exists('MultiPostThumbnails')) {
 
-		new MultiPostThumbnails(array(
-			'label'     => 'Artwork Image 1',
-			'id'        => 'artwork-image-1',
-			'post_type' => 'artwork'
-		));
-
-		new MultiPostThumbnails(array(
-			'label'     => 'Artwork Image 2',
-			'id'        => 'artwork-image-2',
-			'post_type' => 'artwork'
-		));
-
-		new MultiPostThumbnails(array(
-			'label'     => 'Artwork Image 3',
-			'id'        => 'artwork-image-3',
-			'post_type' => 'artwork'
-		));
-
-		new MultiPostThumbnails(array(
-			'label'     => 'Artwork Image 4',
-			'id'        => 'artwork-image-4',
-			'post_type' => 'artwork'
-		));
-
-		new MultiPostThumbnails(array(
-			'label'     => 'Artwork Image 5',
-			'id'        => 'artwork-image-5',
-			'post_type' => 'artwork'
-		));
+		for ($i=1; $i <= 5; $i++) { 	
+			new MultiPostThumbnails(array(
+				'label'     => 'Artwork Image '.$i,
+				'id'        => 'artwork-image-'.$i,
+				'post_type' => 'artwork'
+			));
+		}
  	}
 
  	/**
@@ -136,5 +99,5 @@
 		return $classes;
 	}
 
-	add_filter( 'body_class', 'rodrigo_art_body_classes' );
+	add_filter('body_class', 'rodrigo_art_body_classes');
 ?>

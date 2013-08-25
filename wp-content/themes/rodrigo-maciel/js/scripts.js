@@ -115,10 +115,7 @@ $(document).ready(function(){
 
     }());
 
-    // fixed nav on home
-    if (!$('.home').exists()) {
-        nav.init();
-    }
+    nav.init();
 
     // left years
     if ($('.navigation-left li.year').exists()) {
