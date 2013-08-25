@@ -22,6 +22,7 @@
 		{
 			$args = array(
 				'post_type'      => $this->post_type,
+				'orderby'        => 'rand',
 				'posts_per_page' => 7
 			);
 			return new WP_Query($args);
