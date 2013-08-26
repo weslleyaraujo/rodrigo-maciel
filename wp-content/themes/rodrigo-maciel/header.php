@@ -38,6 +38,43 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
     </script>
+    
+    <?php
+
+        // Manipulate title
+        $finalTitle = '';
+        if (isset($title)) {
+            $finalTitle = '-'.$title;
+        }
+
+        // Manipulate fbImage
+        $finalFbImage = get_bloginfo('template_url'). '/images/main-fb-200x200.jpg';
+        if (isset($fbImage)) {
+            $finalFbImage = $fbImage[0];
+        }
+    ?>
+
+    <title>
+        <?php
+
+            global $page, $paged;
+
+            // get wp title
+            echo get_bloginfo('name');
+
+            // Add the blog description for the home/front page.
+            $site_description = get_bloginfo('description', 'display');
+            if ($site_description && (is_home() || is_front_page())) {   
+                echo " | $site_description";
+            }
+
+        ?>
+    </title>
+    <meta property="og:image" content="<?php echo $finalFbImage; ?>"/>
+    <meta property="og:description" content="<?php echo $site_description; ?>"/> 
+    <meta property="og:title" content="Rodrigo Maciel <?php echo $finalTitle; ?>"/>
+    <meta property="og:url" content="<?php echo get_bloginfo('siteurl'); ?>/"/>
+    <meta property="og:site_name" content="Rodrigo Maciel"/>
 
 </head>
 <body <?php body_class(); ?> >

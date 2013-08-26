@@ -15,7 +15,7 @@
 
 			?>							
 					<li>
-						<a href="#">
+						<a href="<?php the_permalink(); ?>">
 							<div class="overlay">
 								<?php the_title(); ?>
 							</div>

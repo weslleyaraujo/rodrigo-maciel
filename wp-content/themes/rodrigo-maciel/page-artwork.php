@@ -4,9 +4,6 @@
 	 * Template Name: Artwork
 	 */
 
-	// header
-	get_header();
-
 	require_once('helpers/internal-helpers.php');
 
 	$artworks    = new Internal('artwork');
@@ -23,6 +20,12 @@
 
 	// get the post title
 	$postTitle = get_the_title();
+
+	// get main recent image
+	$fbImage = wp_get_attachment_image_src(get_post_thumbnail_id($recent_post_id), 'single-post-thumbnail');
+
+	// header
+	include(locate_template('header.php'));
 ?>
 	<div class="full-wrap internal-content primary-content">
 		<div class="wrap">
@@ -81,9 +84,9 @@
 						<?php
 							$count = 0;
 							for ($i=0; $i <= 5; $i++) { 
-								$src = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'artwork-image-'.$i);
+								$src = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'artwork-image-'.$i, $recent_post_id);
 								if ($src) {
-									$count++;
+									$count += 1;
 						?>
 									<img src="<?php echo $src; ?>" rel="<?php echo $i; ?>"/>
 						<?php
@@ -99,12 +102,12 @@
 							</div>
 						<?php endif ?>
 						<div class="count">
-							<span class="f">1</span> of <span class="s">1</span>
+							<span class="f">1</span> of <span class="s"><?php echo $count; ?></span>
 						</div>
 					</div>
 
 					<div class="full-wrap job-description">
-						<?php the_content(); ?>
+						<?php echo get_post_field('post_content', $recent_post_id); ?>
 					</div>
 					
 					<div class="full-wrap down">

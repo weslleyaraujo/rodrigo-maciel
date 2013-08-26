@@ -1,29 +1,31 @@
 <?php
 	
 	/**
-	 * Template Name: Artwork
+	 * Template Name: Single Artwork
 	 */
-
-	// header
-	get_header();
 
 	require_once('helpers/internal-helpers.php');
 
 	$artworks    = new Internal('artwork');
-	$recent      = $artworks->getRecent();
 	$mostPopular = $artworks->getMostPopular();
 	$years       = $artworks->getYears();
-
-	// the post
-	$recent->have_posts();
-	$recent->the_post();
 	
-	// get post id
-	$recent_post_id = get_the_ID();
+	if ( have_posts() ) while ( have_posts() ) : the_post();
 
-	// get the post title
-	$postTitle = get_the_title();
+		// get post id
+		$recent_post_id = get_the_ID();
 
+		// get the post title
+		$postTitle = get_the_title();
+		
+	endwhile;
+
+
+	// get main recent image
+	$fbImage = wp_get_attachment_image_src(get_post_thumbnail_id($recent_post_id), 'single-post-thumbnail');
+
+	// header
+	include(locate_template('header.php'));
 ?>
 	<div class="full-wrap internal-content primary-content">
 		<div class="wrap">
@@ -84,7 +86,7 @@
 							for ($i=0; $i <= 5; $i++) { 
 								$src = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'artwork-image-'.$i, $recent_post_id);
 								if ($src) {
-									$count++;
+									$count += 1;
 						?>
 									<img src="<?php echo $src; ?>" rel="<?php echo $i; ?>"/>
 						<?php
@@ -100,7 +102,7 @@
 							</div>
 						<?php endif ?>
 						<div class="count">
-							<span class="f">1</span> of <span class="s">1</span>
+							<span class="f">1</span> of <span class="s"><?php echo $count; ?></span>
 						</div>
 					</div>
 
