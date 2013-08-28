@@ -5,7 +5,6 @@
 			TAGS
 			<ul class="clear">
 				<?php foreach ($tags as $key => $value): ?>
-
 					<li><a href="#"><?php echo $value->name; ?></a></li>
 				<?php endforeach ?>
 			</ul>

@@ -126,8 +126,7 @@ $(document).ready(function(){
                 obj = null;
 
             function bindOpeners() {
-                openers.on('click', function(e) {
-                    e.preventDefault();
+                openers.on('click', function() {
                     obj = $(this);
                     if (comparer(obj)) {
                         obj.next().slideUp();
@@ -181,4 +180,64 @@ $(document).ready(function(){
 
         backTop.init();
     }
+
+    // job share
+    function jobShare() {
+
+        var openers = $('.share a'),
+            o       = null;
+
+        function bindOpeners() {
+            openers.on('click', function(e) {
+                o = $(this);
+                switch(getType(o)) {
+                    case 'mail' :
+                    break;
+
+                    case 'facebook' :
+                        e.preventDefault();
+                        openWindow('http://www.facebook.com/sharer.php?p[url]' + document.URL + '&p[title]' + getName(o) + ' &p[images][0]' + getImage(o), 'Compartilhe no Facebook');
+                    break;
+
+                    case 'twitter' :
+                        e.preventDefault();
+                        openWindow('http://www.twitter.com/share?url=' + document.URL, 'Compartilhe no Twitter');
+                    break;
+
+                    case 'pint' :
+                        e.preventDefault();
+                        openWindow('http://pinterest.com/pin/?url=' + document.URL, 'Pint it');
+                    break;
+                }
+            });
+        }
+
+        function openWindow(url, name) {
+            window.open(url, name, "menubar=1,resizable=1,width=670,height=320");
+        }
+
+        function getType(o) {
+            return o.data('type');
+        }
+
+        function getName(o) {
+            return o.data('name');
+        }
+
+        function getImage(o) {
+            return o.data('image');
+        }
+
+
+        function init() {
+            bindOpeners();
+        }
+
+        return {
+            init : init
+        };
+    };
+
+    var jobShare = new jobShare();
+    jobShare.init();
 });

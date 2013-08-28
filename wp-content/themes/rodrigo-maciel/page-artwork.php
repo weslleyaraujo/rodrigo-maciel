@@ -36,42 +36,7 @@
 				<!-- .navigation-left -->
 				<nav class="navigation-left">
 
-					<!-- years -->
-					<?php if ($years): ?>
-
-						<ul class="clear">
-							<?php foreach ($years as $key => $value):
-
-								// has category
-								$hasCat = has_category($value->term_id, $recent_post_id);
-							?>
-
-								<li class="year <?php echo $hasCat === true ? 'active' : ''; ?>">
-									<?php if ($hasCat): ?>
-										<?php echo $value->name; ?>
-									<?php else: ?>
-										<a href="javascript:void(0);"><?php echo $value->name; ?></a>
-									<?php endif;
-
-										$subPosts = $artworks->getPostsByCat($value->term_id);
-										if ($subPosts->have_posts()):
-									?>
-										<ul class="clear">
-									<?php
-											while($subPosts->have_posts()) : $subPosts->the_post();
-									?>
-											<li><a class="<?php echo $postTitle === get_the_title() ? 'active' : ''; ?>" href="<?php echo $postTitle === get_the_title() ? 'javascript:void(0);' : ''; ?>"><?php the_title(); ?></a></li>
-									<?php
-											endwhile;
-									?>
-										</ul>
-									<?php endif ?>
-
-								</li>
-							<?php endforeach ?>
-						</ul>
-					<?php endif ?>
-					<!-- years -->
+					<?php include(locate_template('templates/years-list.php')); ?>
 					
 					<?php get_template_part('templates/tags', 'list'); ?>
 
@@ -120,12 +85,9 @@
 								<?php endforeach ?>
 							</ul>						
 						<?php endif ?>
-						<ul class="clear share">
-							<li><a href="#" class="icons-social-facebook-mini"></a></li>
-							<li><a href="#" class="icons-social-mail-mini"></a></li>
-							<li><a href="#" class="icons-social-twitter-mini"></a></li>
-							<li><a href="#" class="icons-social-pint-mini"></a></li>
-						</ul>
+						
+						<?php include(locate_template('templates/job-sharer.php')); ?>
+
 					</div>
 
 				<?php include(locate_template('templates/most-popular.php')); ?>
