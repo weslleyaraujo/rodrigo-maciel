@@ -9,6 +9,7 @@
 		?>
 
 			<li class="year <?php echo $hasCat === true ? 'active' : ''; ?>">
+				
 				<?php if ($hasCat): ?>
 					<?php echo $value->name; ?>
 				<?php else: ?>

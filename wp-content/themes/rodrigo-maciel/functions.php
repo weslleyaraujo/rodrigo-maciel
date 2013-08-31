@@ -82,6 +82,63 @@
 		}
  	}
 
+ 	// Register Custom Post Type
+	function sketchbook() {
+
+		$labels = array(
+			'name'                => 'sketchbooks',
+			'singular_name'       => 'sketchbook',
+			'menu_name'           => 'sketchbook',
+			'parent_item_colon'   => 'Parent Sketchbook:',
+			'all_items'           => 'All Sketchbooks',
+			'view_item'           => 'View Sketchbook',
+			'add_new_item'        => 'Add New Sketchbook',
+			'add_new'             => 'New Sketchbook',
+			'edit_item'           => 'Edit Sketchbook',
+			'update_item'         => 'Update Sketchbook',
+			'search_items'        => 'Search Sketchbook',
+			'not_found'           => 'No Sketchbooks found',
+			'not_found_in_trash'  => 'No Sketchbooks found in Trash',
+		);
+		$args = array(
+			'label'               => 'Sketchbook',
+			'description'         => 'sketchbook information pages',
+			'labels'              => $labels,
+			'supports'            => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'custom-fields', 'post-formats', 'category'),
+			'hierarchical'        => false,
+			'public'              => true,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'show_in_nav_menus'   => true,
+			'show_in_admin_bar'   => true,
+			'menu_position'       => 5,
+			'menu_icon'           => '',
+			'can_export'          => true,
+			'has_archive'         => true,
+			'exclude_from_search' => false,
+			'publicly_queryable'  => true,
+			'capability_type'     => 'page'
+		);
+		register_post_type('sketchbook', $args);
+		register_taxonomy_for_object_type('post_tag', 'sketchbook');
+		register_taxonomy_for_object_type('category', 'sketchbook');
+	}
+
+	// Hook into the 'init' action
+	add_action('init', 'sketchbook', 0);
+
+	// add multiple thumbs for artwork
+	if (class_exists('MultiPostThumbnails')) {
+
+		for ($i=1; $i <= 5; $i++) { 	
+			new MultiPostThumbnails(array(
+				'label'     => 'Sketchbook Image '.$i,
+				'id'        => 'sketchbook-image-'.$i,
+				'post_type' => 'sketchbook'
+			));
+		}
+ 	}
+ 	
  	/**
 	 * Adds two classes to the array of body classes.
 	 * The first is if the site has only had one author with published posts.

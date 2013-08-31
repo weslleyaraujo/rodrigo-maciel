@@ -53,6 +53,7 @@
 					$return[] = $wpdb->get_row($sql);
 				}
 			}
+
 			return array_filter($return);
 		}
 

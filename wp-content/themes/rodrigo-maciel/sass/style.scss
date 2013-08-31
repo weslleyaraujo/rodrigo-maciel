@@ -281,6 +281,20 @@ nav.navigation-left {
 		height: 130px;
 		@include opacity(0);
 	}
+	&.tags {
+		border-top: 0;
+		padding-top: 0;
+		margin-top: -10px;
+		.tag-name {
+			color: $active-color;
+			@extend .font;
+		}
+		&.not-found {
+			font-size: 25px;
+			text-align: center;
+			margin: 40px 0;
+		}
+	}
 }
 
 // overlay
