@@ -44,51 +44,52 @@
 				<!-- /.navigation-left -->
 
 			</div>
-			<div class="right-content">				
-					<div class="main-image" id="internal-slide" >
-						<?php
-							$count = 0;
-							for ($i=0; $i <= 5; $i++) { 
-								$src = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'artwork-image-'.$i, $recent_post_id);
-								if ($src) {
-									$count += 1;
-						?>
-									<img src="<?php echo $src; ?>" rel="<?php echo $i; ?>"/>
-						<?php
-								}
+			<div class="right-content">
+				
+				<div class="main-image" id="internal-slide" >
+					<?php
+						$count = 0;
+						for ($i=0; $i <= 5; $i++) { 
+							$src = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(), 'artwork-image-'.$i, $recent_post_id);
+							if ($src) {
+								$count += 1;
+					?>
+								<img src="<?php echo $src; ?>" rel="<?php echo $i; ?>"/>
+					<?php
 							}
-						?>
-					</div>
-					
-					<div class="hold-nav">
-						<?php if ($count !== 1): ?>
-							<div class="nav">
-								<a href="#" class="next">preview</a> | <a href="#" class="prev">next</a>
-							</div>
-						<?php endif ?>
-						<div class="count">
-							<span class="f">1</span> of <span class="s"><?php echo $count; ?></span>
+						}
+					?>
+				</div>
+				
+				<div class="hold-nav">
+					<?php if ($count !== 1): ?>
+						<div class="nav">
+							<a href="#" class="next">preview</a> | <a href="#" class="prev">next</a>
 						</div>
+					<?php endif ?>
+					<div class="count">
+						<span class="f">1</span> of <span class="s"><?php echo $count; ?></span>
 					</div>
+				</div>
 
-					<div class="full-wrap job-description">
-						<?php echo get_post_field('post_content', $recent_post_id); ?>
-					</div>
+				<div class="full-wrap job-description">
+					<?php echo get_post_field('post_content', $recent_post_id); ?>
+				</div>
+				
+				<div class="full-wrap down">
+					<?php $tags = wp_get_post_tags($recent_post_id); if ($tags): ?>
+						<ul class="clear tags">
+							<li class="title">Tags:</li>
+							<?php foreach ($tags as $key => $value): ?>
+								<?php $comma = $key == count($tags)-1 ? '' : ','; ?>
+								<li><a href="#"><?php echo $value->name; echo $comma; ?></a></li>
+							<?php endforeach ?>
+						</ul>						
+					<?php endif ?>
 					
-					<div class="full-wrap down">
-						<?php $tags = wp_get_post_tags($recent_post_id); if ($tags): ?>
-							<ul class="clear tags">
-								<li class="title">Tags:</li>
-								<?php foreach ($tags as $key => $value): ?>
-									<?php $comma = $key == count($tags)-1 ? '' : ','; ?>
-									<li><a href="#"><?php echo $value->name; echo $comma; ?></a></li>
-								<?php endforeach ?>
-							</ul>						
-						<?php endif ?>
-						
-						<?php include(locate_template('templates/job-sharer.php')); ?>
+					<?php include(locate_template('templates/job-sharer.php')); ?>
 
-					</div>
+				</div>
 
 				<?php include(locate_template('templates/most-popular.php')); ?>
 

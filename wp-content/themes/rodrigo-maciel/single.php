@@ -10,6 +10,6 @@
 	// get header
 	get_header();
 ?>
-	yea
+	thats the single
 	
 <?php get_footer(); ?>

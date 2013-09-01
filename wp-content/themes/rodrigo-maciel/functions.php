@@ -157,4 +157,5 @@
 	}
 
 	add_filter('body_class', 'rodrigo_art_body_classes');
+
 ?>
