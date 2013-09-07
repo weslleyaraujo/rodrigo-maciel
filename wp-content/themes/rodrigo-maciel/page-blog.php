@@ -40,13 +40,22 @@
 								<?php the_excerpt(); ?>
 							</div>
 							<div class="down">
-								<ul class="clear tags">
-									<li class="title">Tags:</li>
-									<li><a href="#">Digital Paiting,</a></li>
-									<li><a href="#">Yeah</a></li>
-								</ul>
+								<?php
+									//	get the tags
+									$tags = get_the_tags();
+									
+									if ($tags): ?>
+									<ul class="clear tags">
+										<li class="title">Tags</li>
+										<?php foreach ($tags as $key => $value): ?>
+											<li><a href="<?php echo bloginfo('siteurl') . '/tag/' . $value->slug ?>"><?php echo $value->name; ?></a></li>
+										<?php endforeach ?>
+									</ul>
+									
+								<?php endif ?>
+
 								<div class="date">
-									<?php the_date('d/m/Y') ?>
+									<?php echo get_the_date('d/m/Y'); ?>
 								</div>
 							</div>
 						</div>
@@ -56,6 +65,11 @@
 				
 				<?php endif ?>
 				<!-- /.post-item -->
+		
+				<div class="nav-links full-wrap">
+					<div class="nav-previous"><?php next_posts_link( 'Older posts' ); ?></div>
+					<div class="nav-next"><?php previous_posts_link( 'Newer posts' ); ?></div>
+				</div>
 
 			</div>
 

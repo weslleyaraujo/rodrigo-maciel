@@ -9,6 +9,7 @@ Class Blog {
 
 	public function getPosts()
 	{
-		query_posts('posts_per_page=10&post_type=post');
+		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		query_posts('posts_per_page=10&post_type=post&paged=' . $paged);
 	}
 }
